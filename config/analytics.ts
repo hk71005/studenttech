@@ -13,6 +13,7 @@ export const EVENTS = {
   EMAIL_SUBSCRIBE: "email_subscribe",
   COMPARE_ADD: "compare_add",
   SEARCH_QUERY: "search_query",
+  QUIZ_COMPLETE: "quiz_complete",
 } as const;
 
 type EventName = (typeof EVENTS)[keyof typeof EVENTS];

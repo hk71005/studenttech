@@ -59,6 +59,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Quiz CTA */}
+      <section className="pb-10">
+        <Link
+          href="/finder"
+          className="group flex items-center gap-4 rounded-xl border border-primary/20 bg-primary/5 p-4 sm:p-5 hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
+        >
+          <span className="text-2xl shrink-0" role="img" aria-hidden="true">🎯</span>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold text-foreground">Not sure what to buy?</p>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Take the 30-second quiz and find your perfect student tech →
+            </p>
+          </div>
+          <ArrowRight className="h-4 w-4 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+      </section>
+
       {/* Categories */}
       <section className="pb-14">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
