@@ -8,10 +8,20 @@ import { Button } from "@/components/ui/button";
 import { ScoreRing } from "@/components/products/ScoreRing";
 import { ProductImage } from "@/components/products/ProductImage";
 import { useCompare } from "@/hooks/useCompare";
-import { formatINR, getGoUrl } from "@/lib/data";
+import { formatINR } from "@/lib/data";
 import { trackEvent, EVENTS } from "@/config/analytics";
 import type { Product } from "@/types/product";
 import { cn } from "@/lib/utils";
+
+function getBudgetBadge(product: Product): { emoji: string; label: string } | null {
+  if (product.priceINR < 15000) return { emoji: "💚", label: "Under ₹15K" };
+  if (product.priceINR < 30000) return { emoji: "💚", label: "Under ₹30K" };
+  if (product.priceINR < 50000) return { emoji: "💰", label: "Under ₹50K" };
+  if (product.bestForTags.includes("gaming")) return { emoji: "🎮", label: "Gaming" };
+  if (product.bestForTags.includes("coding")) return { emoji: "💻", label: "Coding Pick" };
+  if (product.bestForTags.includes("value")) return { emoji: "⭐", label: "Great Value" };
+  return null;
+}
 
 interface ProductCardProps {
   product: Product;
@@ -56,6 +66,17 @@ export function ProductCard({ product, rank, showCompare = true }: ProductCardPr
             className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
+          {(() => {
+            const badge = getBudgetBadge(product);
+            return badge ? (
+              <Badge
+                variant="secondary"
+                className="absolute top-3 right-3 z-10 text-[10px] px-2 py-0.5 gap-1 bg-background/80 backdrop-blur-sm"
+              >
+                {badge.emoji} {badge.label}
+              </Badge>
+            ) : null;
+          })()}
         </div>
 
         <CardContent className="pt-4">
@@ -111,12 +132,12 @@ export function ProductCard({ product, rank, showCompare = true }: ProductCardPr
           asChild
         >
           <a
-            href={getGoUrl(product.asin)}
+            href={product.amazonUrl}
             rel="sponsored nofollow"
             target="_blank"
             onClick={handleAffiliateClick}
           >
-            Check on Amazon
+            Check Live Amazon Price
             <ExternalLink className="h-3 w-3" />
           </a>
         </Button>

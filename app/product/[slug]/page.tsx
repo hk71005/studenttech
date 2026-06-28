@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ProductImage } from "@/components/products/ProductImage";
 import { Check, X as XIcon, ExternalLink, CalendarDays } from "lucide-react";
 import {
-  getAllProducts, getProductBySlug, getRelatedProducts, getAllComparisons, formatINR, getGoUrl,
+  getAllProducts, getProductBySlug, getRelatedProducts, getAllComparisons, formatINR,
 } from "@/lib/data";
 import { getRelevantGumroadProducts } from "@/config/gumroad";
 import { AffiliateButton } from "@/components/products/AffiliateButton";
@@ -12,6 +12,8 @@ import { GumroadCTA } from "@/components/products/GumroadCTA";
 import { EmailCapture } from "@/components/products/EmailCapture";
 import { ScoreRing, ScoreBreakdown } from "@/components/products/ScoreRing";
 import { ProductCard } from "@/components/products/ProductCard";
+import { QuickVerdict } from "@/components/products/QuickVerdict";
+import { StickyMobileCTA } from "@/components/products/StickyMobileCTA";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
@@ -179,6 +181,9 @@ export default async function ProductPage({
               />
             </div>
 
+            {/* Quick Verdict */}
+            <QuickVerdict product={product} />
+
             {/* Intro */}
             {content?.intro && (
               <div className="mb-8 prose-p:text-muted-foreground prose-p:leading-relaxed">
@@ -331,6 +336,9 @@ export default async function ProductPage({
           </div>
         )}
       </div>
+
+      {/* Sticky mobile CTA */}
+      <StickyMobileCTA product={product} />
     </>
   );
 }

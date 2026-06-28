@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Check, X as XIcon, Minus, ExternalLink } from "lucide-react";
-import { getAllComparisons, getComparisonBySlug, formatINR, getGoUrl } from "@/lib/data";
+import { getAllComparisons, getComparisonBySlug, formatINR } from "@/lib/data";
 import { AffiliateButton } from "@/components/products/AffiliateButton";
 import { ScoreRing, ScoreBreakdown } from "@/components/products/ScoreRing";
 import { Badge } from "@/components/ui/badge";
@@ -43,11 +43,19 @@ function SpecCompareRow({
   valueB: string;
   winner?: "a" | "b" | "tie";
 }) {
+  const winnerLabel = winner && winner !== "tie" ? (
+    <span className="ml-1.5 text-[10px] text-primary font-medium whitespace-nowrap">✔ Best {label}</span>
+  ) : null;
+
   return (
     <tr>
       <td className="text-xs text-muted-foreground font-medium py-2.5 px-3 w-32">{label}</td>
-      <td className={`text-sm py-2.5 px-3 ${winner === "a" ? "winner" : ""}`}>{valueA}</td>
-      <td className={`text-sm py-2.5 px-3 ${winner === "b" ? "winner" : ""}`}>{valueB}</td>
+      <td className={`text-sm py-2.5 px-3 ${winner === "a" ? "winner" : ""}`}>
+        {valueA}{winner === "a" && winnerLabel}
+      </td>
+      <td className={`text-sm py-2.5 px-3 ${winner === "b" ? "winner" : ""}`}>
+        {valueB}{winner === "b" && winnerLabel}
+      </td>
     </tr>
   );
 }
@@ -72,12 +80,12 @@ export default async function ComparisonPage({
 
   // Determine winners per spec
   const scoreWinner = determineWinner(a.studentScore.overall, b.studentScore.overall);
-  const priceWinner = a.priceINR <= b.priceINR ? "a" : "b";
+  const priceWinner = a.priceINR === b.priceINR ? "tie" as const : a.priceINR < b.priceINR ? "a" as const : "b" as const;
   const batteryWinner = determineWinner(a.batteryCapacity, b.batteryCapacity);
   const ramWinner = determineWinner(a.ram, b.ram);
   const storageWinner = determineWinner(a.storage, b.storage);
   const weightWinner = a.weightKg && b.weightKg
-    ? a.weightKg <= b.weightKg ? "a" : "b"
+    ? a.weightKg === b.weightKg ? "tie" as const : a.weightKg < b.weightKg ? "a" as const : "b" as const
     : undefined;
 
   const overallWinner = scoreWinner === "a" ? a : scoreWinner === "b" ? b : null;

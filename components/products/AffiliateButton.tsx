@@ -2,7 +2,6 @@
 
 import { ExternalLink, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getGoUrl } from "@/lib/data";
 import { trackEvent, EVENTS } from "@/config/analytics";
 import type { Product } from "@/types/product";
 
@@ -27,13 +26,13 @@ export function AffiliateButton({
     <div className="flex flex-col gap-1.5">
       <Button variant="amazon" size={size} className={className} asChild>
         <a
-          href={getGoUrl(product.asin)}
+          href={product.amazonUrl}
           rel="sponsored nofollow"
           target="_blank"
           onClick={handleClick}
         >
           <ShoppingCart className="h-4 w-4" />
-          Check Price on Amazon
+          Check Live Amazon Price
           <ExternalLink className="h-3.5 w-3.5 ml-auto" />
         </a>
       </Button>
