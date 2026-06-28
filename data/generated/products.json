@@ -1,6 +1,6 @@
 {
   "samsung-galaxy-m14-5g": {
-    "intro": "As a CS student who's been through the budget phone grind, the Samsung Galaxy M14 5G hits a specific sweet spot I genuinely care about: it lasts two full days on a charge. When you're sitting through back-to-back lectures, labs, and a late-night project session, that 6000 mAh battery isn't a spec — it's a lifeline. I've had ₹25K phones that needed charging by 4 PM. The M14 doesn't.",
+    "intro": "For students grinding through the budget phone segment, the Samsung Galaxy M14 5G hits a specific sweet spot that genuinely matters: it lasts two full days on a charge. When you're sitting through back-to-back lectures, labs, and a late-night project session, that 6000 mAh battery isn't a spec — it's a lifeline. I've had ₹25K phones that needed charging by 4 PM. The M14 doesn't.",
     "verdict": "If your budget is firmly under ₹15K and battery anxiety is real, the M14 5G is the honest pick. You're getting a dependable Samsung device with 5G future-proofing and two-day battery life. It won't win any benchmark races, but it won't let you down during a marathon study session either. Skip it if you want AMOLED or care about camera quality."
   },
   "poco-x6-5g": {
@@ -49,7 +49,7 @@
   },
   "keychron-k2-v2": {
     "intro": "I switched to mechanical keyboards in second year after my laptop keyboard's flex started giving me wrist fatigue during project season. The Keychron K2 was the recommendation I kept seeing, and after two years of daily use including competitive programming sessions, I understand why. The hot-swap sockets mean you can change switch feel without soldering — I started with Red switches (linear, quiet) and moved to Browns (tactile bump) after a month. Bluetooth 5.1 means it pairs instantly with your laptop, phone, and tablet on three profiles.",
-    "verdict": "The best mechanical keyboard recommendation for CS students who want to invest once. The 75% layout is genius — full function row and arrow keys without the bulk of a full-size or the compromise of a 65%. Build quality feels premium for the price. The learning curve from membrane to mechanical takes about a week, but after that, you'll notice the difference in typing accuracy and comfort."
+    "verdict": "The best mechanical keyboard for students who code and want to invest once. The 75% layout is genius — full function row and arrow keys without the bulk of a full-size or the compromise of a 65%. Build quality feels premium for the price. The learning curve from membrane to mechanical takes about a week, but after that, you'll notice the difference in typing accuracy and comfort."
   },
   "sony-wh-1000xm4": {
     "intro": "I bought the Sony WH-1000XM4 specifically to survive the college library during exam season. That sounds dramatic, but our library has thin walls and the canteen is next door. The XM4's ANC isn't just 'okay' — it's genuinely, impressively effective at blocking conversational noise, machinery hum, and air conditioner drone. I've used it on overnight trains, in airports, and on campus for two years. The 30-hour battery means I charge it once a week.",
@@ -72,7 +72,7 @@
     "verdict": "Buy these if you want wireless earbuds without spending real money, need something IPX4 rated for outdoor use, or want a backup pair for your main earphones. Don't buy them if you care about sound quality or want ANC for studying. At ₹999, expectations should be calibrated accordingly — and they meet those expectations reliably."
   },
   "samsung-t7-portable-ssd": {
-    "intro": "The Samsung T7 Portable SSD is the product I recommend to every CS student who's doing data science, machine learning, or any project involving large datasets. Transferring a 50 GB dataset to your laptop SSD before every session wastes time you don't have. The T7 at 1050 MB/s read speed means you can work directly from the drive in many scenarios — dataset loading times approach what you'd get from an internal SSD.",
+    "intro": "The Samsung T7 Portable SSD is a must-have for any student doing data science, machine learning, or any project involving large datasets. Transferring a 50 GB dataset to your laptop SSD before every session wastes time you don't have. The T7 at 1050 MB/s read speed means you can work directly from the drive in many scenarios — dataset loading times approach what you'd get from an internal SSD.",
     "verdict": "Essential for data science students and anyone managing large project files. The 1 TB capacity is practical — enough for datasets, VM images, and backups simultaneously. AES 256-bit encryption means your project files are safe if the drive goes missing. At ₹7K for 1 TB of NVMe speed, this is excellent value compared to cloud storage at scale."
   }
 }

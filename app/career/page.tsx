@@ -29,8 +29,8 @@ const resources = [
   },
   {
     icon: GraduationCap,
-    title: "The dev setup every CS student should have",
-    description: "Laptop, keyboard, external display, and software — the full setup I use for 6-8 hour coding sessions, with budget tiers.",
+    title: "The dev setup every student should have",
+    description: "Laptop, keyboard, external display, and software — a complete setup for 6-8 hour coding sessions, with budget tiers.",
     href: "#",
     badge: "Setup",
   },

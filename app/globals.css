@@ -25,29 +25,30 @@
   --border:            #e2e8f0;
   --input:             #e2e8f0;
   --ring:              #6366f1;
-  --radius:            0.5rem;
+  --radius:            0.375rem;   /* sharper, Stitch "soft yet precise" */
 }
 
 .dark {
-  --background:        #080c12;
-  --foreground:        #f1f5f9;
-  --card:              #0d1117;
-  --card-foreground:   #f1f5f9;
-  --popover:           #0d1117;
-  --popover-foreground:#f1f5f9;
-  --primary:           #818cf8;   /* indigo-400 — brighter in dark */
-  --primary-foreground:#080c12;
-  --secondary:         #1e293b;
-  --secondary-foreground:#f1f5f9;
-  --muted:             #1e293b;
-  --muted-foreground:  #94a3b8;
-  --accent:            #1e293b;
-  --accent-foreground: #f1f5f9;
-  --destructive:       #7f1d1d;
-  --destructive-foreground:#f1f5f9;
-  --border:            #1e293b;
-  --input:             #1e293b;
-  --ring:              #818cf8;
+  /* Stitch "Calm Editorial Tech" — deep navy + periwinkle indigo */
+  --background:        #051424;   /* deep navy canvas */
+  --foreground:        #d4e4fa;   /* soft on-surface, never pure white */
+  --card:              #0d1c2d;   /* surface-container-low */
+  --card-foreground:   #d4e4fa;
+  --popover:           #122131;   /* surface-container */
+  --popover-foreground:#d4e4fa;
+  --primary:           #c0c1ff;   /* periwinkle indigo accent */
+  --primary-foreground:#1000a9;   /* deep indigo on accent */
+  --secondary:         #1c2b3c;   /* surface-container-high */
+  --secondary-foreground:#d4e4fa;
+  --muted:             #122131;
+  --muted-foreground:  #8b9bb4;   /* readable slate for hierarchy */
+  --accent:            #1c2b3c;
+  --accent-foreground: #d4e4fa;
+  --destructive:       #93000a;
+  --destructive-foreground:#ffdad6;
+  --border:            #1c2b3c;   /* ultra-subtle tonal border */
+  --input:             #1c2b3c;
+  --ring:              #c0c1ff;
 }
 
 @theme inline {

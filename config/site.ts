@@ -1,9 +1,9 @@
 // SINGLE SOURCE OF TRUTH — edit brand/tagline/accent here only
 export const siteConfig = {
   name: "StudentTech India", // TODO: change brand name here
-  tagline: "Honest tech picks for Indian CS students", // TODO: update tagline
+  tagline: "Independent tech reviews for Indian students", // TODO: update tagline
   description:
-    "Unbiased tech reviews, comparisons, and buying guides for engineering & college students in India. Real specs, student scores, and honest CS-student opinions.",
+    "Independent tech reviews, comparisons, and buying guides for engineering & college students in India. Real specs, transparent Student Scores, and clear buying recommendations.",
   url: "https://studenttechindia.com", // TODO: replace with your domain
   accentColor: "#6366f1", // indigo-500 — ONE accent, used exclusively
   accentColorDark: "#818cf8", // indigo-400 for dark mode

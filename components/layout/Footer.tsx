@@ -89,7 +89,7 @@ export function Footer() {
             <span className="font-medium text-foreground">Affiliate Disclosure:</span>{" "}
             {siteConfig.name} participates in the Amazon Associates programme (Amazon.in).
             We earn a small commission on qualifying purchases — at zero extra cost to you.
-            All recommendations are based on genuine research and personal CS-student perspective.
+            All recommendations are based on genuine research and hands-on evaluation.
             Prices and availability may change; always verify on Amazon before buying.{" "}
             <Link href="/affiliate-disclosure" className="underline underline-offset-2 hover:text-foreground transition-colors">
               Full disclosure →

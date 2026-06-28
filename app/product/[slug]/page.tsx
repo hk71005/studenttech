@@ -33,7 +33,7 @@ export async function generateMetadata({
   if (!product) return {};
 
   const title = `${product.name} Review — Is It Worth It for CSE Students?`;
-  const description = `Honest ${product.name} review from a CS student's perspective. Specs, pros & cons, student score (${product.studentScore.overall}/100), and who should actually buy it.`;
+  const description = `Independent ${product.name} review for Indian students. Specs, pros & cons, Student Score (${product.studentScore.overall}/100), and who should actually buy it.`;
 
   return {
     title,
@@ -187,7 +187,7 @@ export default async function ProductPage({
             {/* Intro */}
             {content?.intro && (
               <div className="mb-8 prose-p:text-muted-foreground prose-p:leading-relaxed">
-                <h2 className="text-lg font-semibold text-foreground mb-3">As a CS student...</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-3">Overview</h2>
                 <p className="text-muted-foreground leading-relaxed">{content.intro}</p>
               </div>
             )}

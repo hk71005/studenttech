@@ -24,7 +24,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="pt-16 pb-14 text-center">
         <Badge variant="secondary" className="mb-5 text-xs px-3 py-1">
-          Honest reviews by a CS student, for CS students
+          Independent reviews · No paid rankings
         </Badge>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground mb-5 leading-[1.08]">
           Tech picks that{" "}
@@ -33,7 +33,7 @@ export default function HomePage() {
           {" "}for Indian students
         </h1>
         <p className="mx-auto max-w-xl text-lg text-muted-foreground mb-8 leading-relaxed">
-          No paid placements. No vague advice. Real specs, real prices in ₹, and a CS-student verdict on every product.
+          No paid placements. No vague advice. Real specs, real prices in ₹, and a clear verdict on every product.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button size="lg" asChild>

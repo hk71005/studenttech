@@ -56,7 +56,7 @@ export function EmailCapture({ variant = "inline" }: { variant?: "inline" | "ban
         </p>
       </div>
       <p className="text-xs text-muted-foreground">
-        Weekly: new reviews, comparison updates, and Amazon deals picked for Indian CS students.
+        Weekly: new reviews, comparison updates, and Amazon deals picked for Indian students.
         No spam. Unsubscribe any time.
       </p>
       <form onSubmit={handleSubmit} className="flex gap-2">
