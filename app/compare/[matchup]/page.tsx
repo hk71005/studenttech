@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Check, X as XIcon, Minus, ExternalLink } from "lucide-react";
+import { Check, Minus, ExternalLink } from "lucide-react";
 import { getAllComparisons, getComparisonBySlug, formatINR } from "@/lib/data";
 import { AffiliateButton } from "@/components/products/AffiliateButton";
 import { ScoreRing, ScoreBreakdown } from "@/components/products/ScoreRing";
@@ -89,6 +89,13 @@ export default async function ComparisonPage({
     : undefined;
 
   const overallWinner = scoreWinner === "a" ? a : scoreWinner === "b" ? b : null;
+  const overallLoser = scoreWinner === "a" ? b : scoreWinner === "b" ? a : null;
+
+  const relatedComparisons = getAllComparisons()
+    .filter(({ slug: s, products: [pa, pb] }) =>
+      s !== matchup && (pa.slug === a.slug || pb.slug === a.slug || pa.slug === b.slug || pb.slug === b.slug)
+    )
+    .slice(0, 3);
 
   const breadcrumb = [
     { name: "Home", href: "/" },
@@ -151,8 +158,8 @@ export default async function ComparisonPage({
         </div>
 
         {/* Score cards */}
-        <div className="grid grid-cols-2 gap-4 mb-10">
-          {[a, b].map((product, i) => (
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          {[a, b].map((product) => (
             <div
               key={product.id}
               className={`rounded-xl border ${
@@ -179,9 +186,42 @@ export default async function ComparisonPage({
           ))}
         </div>
 
+        {/* Quick verdict — surfaced above spec table */}
+        {overallWinner && (
+          <div className="rounded-xl border border-primary/30 bg-primary/5 p-5 mb-8">
+            <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Verdict</p>
+            <p className="text-sm text-foreground leading-relaxed">
+              <span className="font-semibold">{overallWinner.name}</span> edges ahead with a Student Score of{" "}
+              {overallWinner.studentScore.overall}/100 — stronger across{" "}
+              {overallWinner.bestForTags.slice(0, 2).map((t) => t.replace("-", " ")).join(" and ")}.
+              {overallLoser && ` The ${overallLoser.name} remains a solid choice if ${overallLoser.bestForTags[0]?.replace("-", " ")} is your top priority.`}
+            </p>
+          </div>
+        )}
+
+        {/* Who should buy which — before spec table for faster decision */}
+        <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[a, b].map((product) => (
+            <div key={product.id} className="rounded-xl border border-border/60 bg-card p-5">
+              <h3 className="text-sm font-semibold text-foreground mb-3">
+                Choose the {product.name} if…
+              </h3>
+              <ul className="space-y-2 mb-4">
+                {product.bestForTags.slice(0, 4).map((tag) => (
+                  <li key={tag} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <Check className="h-3.5 w-3.5 text-emerald-500 mt-0.5 shrink-0" />
+                    <span className="capitalize">{tag.replace("-", " ")} is your priority</span>
+                  </li>
+                ))}
+              </ul>
+              <AffiliateButton product={product} source="compare-verdict" size="sm" className="w-full" />
+            </div>
+          ))}
+        </div>
+
         {/* Spec comparison table */}
         <div className="mb-10">
-          <h2 className="text-lg font-semibold text-foreground mb-4">Spec comparison</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-4">Full spec comparison</h2>
           <div className="rounded-xl border border-border/60 overflow-hidden overflow-x-auto">
             <table className="spec-table min-w-full">
               <thead>
@@ -275,51 +315,6 @@ export default async function ComparisonPage({
           ))}
         </div>
 
-        {/* Who should buy which */}
-        <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[a, b].map((product) => (
-            <div key={product.id} className="rounded-xl border border-border/60 bg-card p-5">
-              <h3 className="text-sm font-semibold text-foreground mb-3">
-                Buy the {product.name} if...
-              </h3>
-              <ul className="space-y-2">
-                {product.bestForTags.map((tag) => (
-                  <li key={tag} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <Check className="h-3.5 w-3.5 text-emerald-500 mt-0.5 shrink-0" />
-                    <span className="capitalize">{tag.replace("-", " ")} is your priority</span>
-                  </li>
-                ))}
-                {product.cons.slice(0, 2).map((con, i) => (
-                  <li key={`con-${i}`} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <XIcon className="h-3.5 w-3.5 text-red-400 mt-0.5 shrink-0" />
-                    <span>{con}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4">
-                <AffiliateButton product={product} source="compare-verdict" size="sm" className="w-full" />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Verdict */}
-        {overallWinner && (
-          <div className="rounded-xl border border-primary/30 bg-primary/5 p-6 mb-10">
-            <h2 className="text-lg font-semibold text-foreground mb-3">
-              Verdict: We'd pick the <span className="text-primary">{overallWinner.name}</span>
-            </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              With a Student Score of {overallWinner.studentScore.overall}/100 and the best combination of{" "}
-              {overallWinner.bestForTags.slice(0, 2).map((t) => t.replace("-", " ")).join(" and ")}, the{" "}
-              {overallWinner.name} edges ahead for most Indian engineering students.
-              At {formatINR(overallWinner.priceINR)}, it's the more{" "}
-              {overallWinner.priceINR <= Math.min(a.priceINR, b.priceINR) + 2000 ? "affordable" : "premium"}{" "}
-              pick with a stronger student-relevant feature set.
-            </p>
-          </div>
-        )}
-
         {/* Links to individual reviews */}
         <div className="flex flex-col sm:flex-row gap-3 mb-10">
           {[a, b].map((product) => (
@@ -336,6 +331,32 @@ export default async function ComparisonPage({
             </Link>
           ))}
         </div>
+
+        {/* Related comparisons */}
+        {relatedComparisons.length > 0 && (
+          <div className="mb-4">
+            <h2 className="text-base font-semibold text-foreground mb-4">Related comparisons</h2>
+            <div className="space-y-2">
+              {relatedComparisons.map(({ slug: cSlug, products: [pa, pb] }) => (
+                <Link
+                  key={cSlug}
+                  href={`/compare/${cSlug}`}
+                  className="group flex items-center gap-4 rounded-xl border border-border/50 bg-card p-4 hover:border-primary/40 transition-all duration-200"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 text-sm">
+                      <span className="font-medium text-foreground truncate">{pa.name}</span>
+                      <span className="text-muted-foreground shrink-0">vs</span>
+                      <span className="font-medium text-foreground truncate">{pb.name}</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-0.5 capitalize">{pa.category}</p>
+                  </div>
+                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

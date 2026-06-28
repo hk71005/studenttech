@@ -42,15 +42,25 @@ export function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {siteConfig.nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-accent transition-colors duration-150"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {siteConfig.nav.map((item) =>
+              item.href === "/finder" ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="ml-1 px-3 py-1.5 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-md transition-colors duration-150"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground rounded-md hover:bg-accent transition-colors duration-150"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Right side */}

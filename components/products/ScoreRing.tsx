@@ -37,7 +37,7 @@ export function ScoreRing({ score, size = 48, label, className }: ScoreRingProps
           r={radius}
           fill="none"
           stroke="var(--muted)"
-          strokeWidth={3}
+          strokeWidth={size <= 44 ? 4 : 3}
         />
         <circle
           cx={size / 2}
@@ -45,7 +45,7 @@ export function ScoreRing({ score, size = 48, label, className }: ScoreRingProps
           r={radius}
           fill="none"
           stroke={color}
-          strokeWidth={3}
+          strokeWidth={size <= 44 ? 4 : 3}
           strokeDasharray={circumference}
           strokeDashoffset={dashOffset}
           strokeLinecap="round"
@@ -58,7 +58,7 @@ export function ScoreRing({ score, size = 48, label, className }: ScoreRingProps
           style={{
             width: size,
             height: size * 0.75,
-            fontSize: size < 44 ? "10px" : "13px",
+            fontSize: size <= 44 ? "11px" : "13px",
             color,
           }}
         >

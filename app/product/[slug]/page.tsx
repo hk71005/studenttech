@@ -200,7 +200,12 @@ export default async function ProductPage({
                   <p className="text-xs text-muted-foreground mt-1">Student Score</p>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-sm font-semibold text-foreground mb-3">Score breakdown</h3>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-sm font-semibold text-foreground">Score breakdown</h3>
+                    <Link href="/methodology" className="text-[11px] text-primary hover:underline">
+                      How we score →
+                    </Link>
+                  </div>
                   <ScoreBreakdown scores={product.studentScore} />
                 </div>
               </div>

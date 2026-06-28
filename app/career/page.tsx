@@ -52,8 +52,8 @@ export default function CareerPage() {
         <Badge variant="secondary" className="mb-4">Career & Dev</Badge>
         <h1 className="text-3xl font-bold text-foreground mb-3">Career & Dev for CS Students</h1>
         <p className="text-muted-foreground max-w-2xl">
-          Honest guides on internships, placements, learning paths, and dev setups — from someone who's been
-          through the grind of CSE in India.
+          Honest guides on internships, placements, learning paths, and dev setups — researched for the
+          realities of engineering college in India.
         </p>
       </div>
 

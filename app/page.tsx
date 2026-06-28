@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Zap, Shield, IndianRupee } from "lucide-react";
+import { ArrowRight, Zap, Shield, IndianRupee, BookOpen } from "lucide-react";
 import { getFeaturedProducts, getAllBestLists, getAllComparisons, categoryMeta, formatINR } from "@/lib/data";
 import { ProductCard } from "@/components/products/ProductCard";
 import { EmailCapture } from "@/components/products/EmailCapture";
@@ -47,14 +47,22 @@ export default function HomePage() {
         </div>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
           {[
-            { icon: Shield, text: "No paid placements" },
-            { icon: IndianRupee, text: "All prices in ₹INR" },
-            { icon: Zap, text: "Updated monthly" },
-          ].map(({ icon: Icon, text }) => (
-            <div key={text} className="flex items-center gap-1.5">
-              <Icon className="h-3.5 w-3.5 text-primary" />
-              {text}
-            </div>
+            { icon: Shield, text: "No paid placements", href: undefined },
+            { icon: IndianRupee, text: "All prices in ₹INR", href: undefined },
+            { icon: Zap, text: "Updated monthly", href: undefined },
+            { icon: BookOpen, text: "Transparent methodology", href: "/methodology" },
+          ].map(({ icon: Icon, text, href }) => (
+            href ? (
+              <a key={text} href={href} className="flex items-center gap-1.5 hover:text-foreground transition-colors">
+                <Icon className="h-3.5 w-3.5 text-primary" />
+                {text}
+              </a>
+            ) : (
+              <div key={text} className="flex items-center gap-1.5">
+                <Icon className="h-3.5 w-3.5 text-primary" />
+                {text}
+              </div>
+            )
           ))}
         </div>
       </section>
