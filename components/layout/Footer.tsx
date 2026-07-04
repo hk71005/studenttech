@@ -41,14 +41,15 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Best lists */}
+          {/* Buying guides */}
           <div>
-            <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">Best Lists</p>
+            <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">Buying Guides</p>
             <ul className="space-y-2">
               {[
+                { label: "Budget Picks", href: "/budget" },
+                { label: "Deal Season Guide", href: "/deals" },
                 { label: "Best Laptops under ₹50K", href: "/best/best-laptops-for-cse-students-under-50000" },
                 { label: "Best Phones under ₹15K", href: "/best/best-phones-under-15000" },
-                { label: "Best Keyboards", href: "/best/best-mechanical-keyboards-for-coding" },
                 { label: "Career & Dev", href: "/career" },
               ].map((item) => (
                 <li key={item.href}>

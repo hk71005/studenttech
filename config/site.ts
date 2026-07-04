@@ -27,6 +27,7 @@ export const siteConfig = {
     { label: "Accessories", href: "/accessories" },
     { label: "Career & Dev", href: "/career" },
     { label: "Compare", href: "/compare" },
+    { label: "Budget", href: "/budget" },
     { label: "Find My Tech", href: "/finder" },
   ],
 };

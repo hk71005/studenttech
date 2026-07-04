@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getProductsByCategory, categoryMeta, getAllComparisons, getAllBestLists, formatINR } from "@/lib/data";
 import { ProductCard } from "@/components/products/ProductCard";
+import { FilteredProductGrid } from "@/components/products/FilteredProductGrid";
 import { Badge } from "@/components/ui/badge";
 import type { Category } from "@/types/product";
 
@@ -135,16 +136,12 @@ export default async function CategoryPage({
           </div>
         )}
 
-        {/* Products grid */}
+        {/* Products grid — with filter + sort */}
         <div className="mb-12">
           <h2 className="text-lg font-bold text-foreground mb-6">
             All {meta.title} ({products.length} products)
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {products.map((product, i) => (
-              <ProductCard key={product.id} product={product} rank={i + 1} />
-            ))}
-          </div>
+          <FilteredProductGrid products={products} category={cat} />
         </div>
 
         {/* Related comparisons */}

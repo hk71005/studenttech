@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Zap, Shield, IndianRupee, BookOpen } from "lucide-react";
-import { getFeaturedProducts, getAllBestLists, getAllComparisons, categoryMeta, formatINR } from "@/lib/data";
+import { getFeaturedProducts, getAllProducts, getAllBestLists, getAllComparisons, categoryMeta, formatINR } from "@/lib/data";
 import { ProductCard } from "@/components/products/ProductCard";
 import { EmailCapture } from "@/components/products/EmailCapture";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/ui/fade-in";
@@ -18,6 +18,20 @@ export default function HomePage() {
   const featured = getFeaturedProducts(6);
   const bestLists = getAllBestLists().slice(0, 4);
   const comparisons = getAllComparisons().slice(0, 3);
+
+  // Editor's Budget Picks: cheap impulse buys (< ₹1,500), hero deal first,
+  // then the rest ordered by biggest genuine discount.
+  const BUDGET_HERO = "prodot-5in1-wired-combo";
+  const budgetPool = getAllProducts().filter((p) => p.priceINR < 1500);
+  const heroPick = budgetPool.filter((p) => p.slug === BUDGET_HERO);
+  const otherPicks = budgetPool
+    .filter((p) => p.slug !== BUDGET_HERO)
+    .sort((a, b) => {
+      const da = a.mrpINR && a.mrpINR > a.priceINR ? (a.mrpINR - a.priceINR) / a.mrpINR : 0;
+      const db = b.mrpINR && b.mrpINR > b.priceINR ? (b.mrpINR - b.priceINR) / b.mrpINR : 0;
+      return db - da;
+    });
+  const budgetPicks = [...heroPick, ...otherPicks].slice(0, 10);
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -107,6 +121,37 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Editor's Budget Picks */}
+      {budgetPicks.length > 0 && (
+        <section className="pb-14">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-xl font-bold text-foreground">Editor&apos;s budget picks</h2>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                Cheap, high-value buys under ₹1,500 — biggest student deals first. Scroll for more →
+              </p>
+            </div>
+            <Link href="/budget" className="text-xs text-primary hover:underline flex items-center gap-1 shrink-0">
+              All budget picks <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
+          <StaggerChildren className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth scroll-px-4 [scrollbar-width:thin] [-webkit-overflow-scrolling:touch]">
+            {budgetPicks.map((product) => (
+              <StaggerItem
+                key={product.id}
+                className="w-[78vw] sm:w-[260px] shrink-0 snap-start"
+              >
+                <ProductCard
+                  product={product}
+                  showCompare={false}
+                  highlight={product.slug === BUDGET_HERO}
+                />
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </section>
+      )}
 
       {/* Featured products */}
       <section className="pb-14">

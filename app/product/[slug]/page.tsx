@@ -11,6 +11,7 @@ import { AffiliateButton } from "@/components/products/AffiliateButton";
 import { GumroadCTA } from "@/components/products/GumroadCTA";
 import { EmailCapture } from "@/components/products/EmailCapture";
 import { ScoreRing, ScoreBreakdown } from "@/components/products/ScoreRing";
+import { PriceTag } from "@/components/products/PriceTag";
 import { ProductCard } from "@/components/products/ProductCard";
 import { QuickVerdict } from "@/components/products/QuickVerdict";
 import { StickyMobileCTA } from "@/components/products/StickyMobileCTA";
@@ -151,7 +152,7 @@ export default async function ProductPage({
                 {product.name} Review
               </h1>
               <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                <span className="font-bold text-xl text-foreground">{formatINR(product.priceINR)}</span>
+                <PriceTag priceINR={product.priceINR} mrpINR={product.mrpINR} size="md" />
                 <Separator orientation="vertical" className="h-4" />
                 <span className="flex items-center gap-1">
                   <CalendarDays className="h-3.5 w-3.5" />
@@ -309,7 +310,7 @@ export default async function ProductPage({
               <div className="rounded-xl border border-border/60 bg-card p-5 space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-2xl font-bold text-foreground">{formatINR(product.priceINR)}</p>
+                    <PriceTag priceINR={product.priceINR} mrpINR={product.mrpINR} size="lg" />
                     <p className="text-xs text-muted-foreground">Approx. price</p>
                   </div>
                   <ScoreRing score={product.studentScore.overall} size={52} label="score" />

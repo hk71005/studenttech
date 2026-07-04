@@ -71,4 +71,13 @@ export const bestLists: BestListSlug[] = [
     category: "phones",
     maxPriceINR: 20000,
   },
+  {
+    slug: "best-laptops-under-40000",
+    title: "Best Laptops Under ₹40,000 for Students",
+    description:
+      "Affordable laptops that handle coding, note-taking, and college life — all under ₹40K.",
+    tag: "budget",
+    category: "laptops",
+    maxPriceINR: 40000,
+  },
 ];

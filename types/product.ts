@@ -30,7 +30,8 @@ export interface Product {
   name: string;
   brand: string;
   category: Category;
-  priceINR: number;
+  priceINR: number; // typical street / guide price
+  mrpINR?: number; // manufacturer's M.R.P. — shown struck-through when higher than priceINR
   // Display
   displayInches?: number;
   displayType?: string; // AMOLED, IPS, etc.

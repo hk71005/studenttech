@@ -52,7 +52,7 @@ export function StickyMobileCTA({ product }: StickyMobileCTAProps) {
             target="_blank"
             onClick={handleClick}
           >
-            Check Live Amazon Price
+            Check Today&apos;s Price
             <ExternalLink className="h-3 w-3" />
           </a>
         </Button>
