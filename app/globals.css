@@ -51,6 +51,40 @@
   --ring:              #c0c1ff;
 }
 
+.hero {
+  /* Opt-in "Hero mode" — midnight blue + hero red, subtle web texture.
+     Vibe only: no trademarked names, logos, or character art. */
+  --background:        #0a0f1f;   /* midnight blue-black */
+  --foreground:        #eaf0ff;
+  --card:              #121a30;
+  --card-foreground:   #eaf0ff;
+  --popover:           #141d35;
+  --popover-foreground:#eaf0ff;
+  --primary:           #e23636;   /* hero red accent */
+  --primary-foreground:#ffffff;
+  --secondary:         #1b2544;
+  --secondary-foreground:#eaf0ff;
+  --muted:             #141d35;
+  --muted-foreground:  #93a4c8;
+  --accent:            #1b2544;
+  --accent-foreground: #eaf0ff;
+  --destructive:       #b91c1c;
+  --destructive-foreground:#ffffff;
+  --border:            #24304f;
+  --input:             #24304f;
+  --ring:              #e23636;
+}
+
+/* Subtle "web/net" texture + red glow, only in Hero mode. Low opacity = readable. */
+.hero body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 50% -8%, rgba(226, 54, 54, 0.10), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(120, 140, 190, 0.05) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(-45deg, rgba(120, 140, 190, 0.05) 0 1px, transparent 1px 24px);
+  background-attachment: fixed;
+}
+
 @theme inline {
   --color-background:        var(--background);
   --color-foreground:        var(--foreground);
