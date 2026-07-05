@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Independent tech reviews for Indian students", // TODO: update tagline
   description:
     "Independent tech reviews, comparisons, and buying guides for engineering & college students in India. Real specs, transparent Student Scores, and clear buying recommendations.",
-  url: "https://studenttechindia.com", // TODO: replace with your domain
+  url: "https://studenttech.kanvi.app", // live domain (Vercel + name.com subdomain)
   accentColor: "#6366f1", // indigo-500 — ONE accent, used exclusively
   accentColorDark: "#818cf8", // indigo-400 for dark mode
   author: {
