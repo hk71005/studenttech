@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Zap, Shield, IndianRupee, BookOpen } from "lucide-react";
 import { getFeaturedProducts, getAllProducts, getAllBestLists, getAllComparisons, categoryMeta, formatINR } from "@/lib/data";
 import { ProductCard } from "@/components/products/ProductCard";
+import { HeroMascot } from "@/components/layout/HeroMascot";
 import { EmailCapture } from "@/components/products/EmailCapture";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/ui/fade-in";
 import { Button } from "@/components/ui/button";
@@ -34,7 +35,9 @@ export default function HomePage() {
   const budgetPicks = [...heroPick, ...otherPicks].slice(0, 10);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <>
+      <HeroMascot />
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
       {/* Hero */}
       <section className="pt-16 pb-14 text-center">
         <Badge variant="secondary" className="mb-5 text-xs px-3 py-1">
@@ -240,6 +243,7 @@ export default function HomePage() {
       <section className="pb-16 max-w-lg mx-auto">
         <EmailCapture />
       </section>
-    </div>
+      </div>
+    </>
   );
 }
