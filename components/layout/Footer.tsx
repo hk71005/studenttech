@@ -18,7 +18,7 @@ export function Footer() {
               {siteConfig.tagline}
             </p>
             <p className="mt-3 text-xs text-muted-foreground">
-              By {siteConfig.author.name}
+              Independent · No paid rankings
             </p>
           </div>
 

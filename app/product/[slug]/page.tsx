@@ -86,7 +86,7 @@ export default async function ProductPage({
     },
     review: {
       "@type": "Review",
-      author: { "@type": "Person", name: siteConfig.author.name },
+      author: { "@type": "Organization", name: siteConfig.name },
       reviewRating: {
         "@type": "Rating",
         ratingValue: (product.studentScore.overall / 20).toFixed(1),

@@ -142,7 +142,7 @@ export default async function BestListPage({
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <h2 className="text-lg font-bold text-foreground">
-              {products.length} picks, ranked
+              {products.length} {products.length === 1 ? "pick" : "picks"}, ranked
             </h2>
             <Badge variant="outline" className="text-xs">By Student Score</Badge>
           </div>
@@ -204,7 +204,7 @@ export default async function BestListPage({
         {/* Methodology note */}
         {content?.methodology && (
           <div className="mb-10 p-5 rounded-xl border border-border/60 bg-card">
-            <h2 className="text-sm font-semibold text-foreground mb-2">How I tested these</h2>
+            <h2 className="text-sm font-semibold text-foreground mb-2">How these are rated</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">{content.methodology}</p>
             <Link href="/methodology" className="text-xs text-primary hover:underline mt-2 inline-block">
               Full methodology →

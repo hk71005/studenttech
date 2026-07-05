@@ -109,7 +109,7 @@ export default async function ComparisonPage({
     "@type": "Article",
     headline: `${a.name} vs ${b.name}`,
     description: `Detailed comparison of ${a.name} and ${b.name} for Indian engineering students.`,
-    author: { "@type": "Person", name: siteConfig.author.name },
+    author: { "@type": "Organization", name: siteConfig.name },
     dateModified: new Date(Math.max(
       new Date(a.lastUpdated).getTime(),
       new Date(b.lastUpdated).getTime()

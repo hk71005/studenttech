@@ -77,7 +77,7 @@ export default function MethodologyPage() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Independence & transparency</h2>
         <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
           <p>No products are gifted in exchange for positive coverage. If a product is provided for review, it's disclosed prominently.</p>
-          <p>Affiliate commissions do not influence rankings. The product I recommend may earn me less commission than alternatives — that's intentional.</p>
+          <p>Affiliate commissions do not influence rankings. The recommended product may earn less commission than alternatives — that's intentional.</p>
           <p>Prices are spot-checked regularly but may change. We include a "last updated" date on every review and recommend verifying on Amazon before buying.</p>
           <p>Scores may be revised when significant software updates change a product's real-world behavior.</p>
         </div>

@@ -8,13 +8,13 @@ export const siteConfig = {
   accentColor: "#6366f1", // indigo-500 — ONE accent, used exclusively
   accentColorDark: "#818cf8", // indigo-400 for dark mode
   author: {
-    name: "Hari", // TODO: your name
-    bio: "3rd-year CSE student who builds side projects, obsesses over keyboards, and reviews every gadget before spending a rupee.",
-    avatar: "/images/author.jpg", // TODO: add your photo
+    name: "StudentTech India Editorial",
+    bio: "An independent publication reviewing laptops, phones, and dev gear for Indian students — no sponsorships, no paid placements.",
+    avatar: "/images/author.jpg",
     social: {
-      twitter: "https://twitter.com/TODO",
-      github: "https://github.com/TODO",
-      linkedin: "https://linkedin.com/in/TODO",
+      twitter: "",
+      github: "",
+      linkedin: "",
     },
   },
   locale: "en-IN",

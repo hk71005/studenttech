@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     "cse student gadgets",
     "budget tech reviews india",
   ],
-  authors: [{ name: siteConfig.author.name }],
-  creator: siteConfig.author.name,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_IN",

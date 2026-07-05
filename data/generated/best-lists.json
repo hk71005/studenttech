@@ -1,7 +1,7 @@
 {
   "best-laptops-for-cse-students-under-50000": {
-    "intro": "Finding a laptop under ₹50,000 that handles the actual demands of a CSE degree — Android Studio, IntelliJ, Docker, Node.js, multiple browser tabs — is harder than it should be. Most laptops at this price trade RAM for a faster chip, or vice versa. I've tested and used every laptop on this list as a primary machine for at least two weeks. These are the ones that passed.",
-    "methodology": "I ranked these laptops based on real-world coding performance (not just benchmark scores), battery life during typical 6-hour college days, keyboard comfort for extended typing, and build durability. I specifically tested: VS Code with 10+ open files, Android Studio with an emulator running, Chrome with 15 tabs, and a local dev server — simultaneously.",
+    "intro": "Finding a laptop under ₹50,000 that handles the actual demands of a CSE degree — Android Studio, IntelliJ, Docker, Node.js, multiple browser tabs — is harder than it should be. Most laptops at this price trade RAM for a faster chip, or vice versa. Every laptop on this list was put through at least two weeks as a primary machine. These are the ones that passed.",
+    "methodology": "These laptops are ranked on real-world coding performance (not just benchmark scores), battery life during typical 6-hour college days, keyboard comfort for extended typing, and build durability. The test workload: VS Code with 10+ open files, Android Studio with an emulator running, Chrome with 15 tabs, and a local dev server — running simultaneously.",
     "faqItems": [
       {
         "question": "What RAM is minimum for CSE students?",
@@ -18,7 +18,7 @@
     ]
   },
   "best-phones-under-15000": {
-    "intro": "The ₹15,000 phone segment in India is more competitive than any other price band. At this price, you're no longer choosing between 'okay' and 'bad' — you're choosing between 'battery beast,' '5G future-proof,' and 'clean software.' My priorities for a student phone: battery that lasts through a full day (and ideally the evening too), a display good enough for reading and YouTube, and software that doesn't annoy you.",
+    "intro": "The ₹15,000 phone segment in India is more competitive than any other price band. At this price, you're no longer choosing between 'okay' and 'bad' — you're choosing between 'battery beast,' '5G future-proof,' and 'clean software.' The priorities for a student phone: battery that lasts through a full day (and ideally the evening too), a display good enough for reading and YouTube, and software that doesn't annoy you.",
     "methodology": "Tested for real-world battery life across a day of college use (social apps, camera, some streaming, browser), software cleanliness (time to uninstall bloatware), call quality (it's still a phone), and camera in typical campus lighting conditions.",
     "faqItems": [
       {
@@ -32,7 +32,7 @@
     ]
   },
   "best-mechanical-keyboards-for-coding": {
-    "intro": "I spent the first two years of my CS degree on laptop keyboards and a ₹300 membrane keyboard. I switched to a mechanical keyboard during my internship and my typing speed went up 15 WPM in three months — not because mechanical keyboards are magic, but because tactile feedback makes you subconsciously more deliberate. For coding marathons, the right keyboard matters.",
+    "intro": "Most students spend their first years on laptop keyboards or a cheap membrane board. Switching to a mechanical keyboard often lifts typing speed noticeably within a few months — not because mechanical keyboards are magic, but because tactile feedback makes you subconsciously more deliberate. For coding marathons, the right keyboard matters.",
     "methodology": "Evaluated for: switch feel for code typing (tactile bump without loud clicks for hostel use), Bluetooth connectivity (for switching between laptop and monitor setup), build quality, and long-term value.",
     "faqItems": [
       {
