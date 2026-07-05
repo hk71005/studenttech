@@ -41,9 +41,18 @@ interface ProductCardProps {
   showCompare?: boolean;
   /** Visually feature this card (used for the top budget deal) */
   highlight?: boolean;
+  /** Suppress the "Popular with students" line — use when the surrounding
+   *  section (e.g. "Top student picks") already conveys that signal. */
+  hidePopularBadge?: boolean;
 }
 
-export function ProductCard({ product, rank, showCompare = true, highlight = false }: ProductCardProps) {
+export function ProductCard({
+  product,
+  rank,
+  showCompare = true,
+  highlight = false,
+  hidePopularBadge = false,
+}: ProductCardProps) {
   const { add, remove, has } = useCompare();
   const inTray = has(product.slug);
 
@@ -141,7 +150,7 @@ export function ProductCard({ product, rank, showCompare = true, highlight = fal
           )}
 
           {/* Honest social proof — only for genuinely featured editorial picks */}
-          {product.featured && !highlight && (
+          {product.featured && !highlight && !hidePopularBadge && (
             <div className="mb-3 flex items-center gap-1 text-[11px] font-medium text-primary">
               <Flame className="h-3 w-3 shrink-0" />
               Popular with students

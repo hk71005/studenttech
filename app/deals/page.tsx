@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { MascotAccent } from "@/components/layout/MascotAccent";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -79,6 +80,8 @@ export default function DealsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+
+      <MascotAccent src="mascot-budget.webp" position="bottom-right" />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10">
         {/* Breadcrumb */}

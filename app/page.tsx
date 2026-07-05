@@ -167,7 +167,7 @@ export default function HomePage() {
         <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((product) => (
             <StaggerItem key={product.id}>
-              <ProductCard product={product} />
+              <ProductCard product={product} hidePopularBadge />
             </StaggerItem>
           ))}
         </StaggerChildren>

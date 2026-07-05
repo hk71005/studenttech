@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getAllProducts } from "@/lib/data";
 import { TechFinder } from "@/components/finder/TechFinder";
+import { MascotAccent } from "@/components/layout/MascotAccent";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -18,5 +19,10 @@ export const metadata: Metadata = {
 export default function FinderPage() {
   const products = getAllProducts();
 
-  return <TechFinder products={products} />;
+  return (
+    <>
+      <MascotAccent src="mascot-finder.webp" position="bottom-left" />
+      <TechFinder products={products} />
+    </>
+  );
 }

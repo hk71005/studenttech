@@ -5,6 +5,7 @@ import { Check, Minus, ExternalLink } from "lucide-react";
 import { getAllComparisons, getComparisonBySlug, formatINR } from "@/lib/data";
 import { AffiliateButton } from "@/components/products/AffiliateButton";
 import { ScoreRing, ScoreBreakdown } from "@/components/products/ScoreRing";
+import { MascotAccent } from "@/components/layout/MascotAccent";
 import { Badge } from "@/components/ui/badge";
 import { siteConfig } from "@/config/site";
 import type { Product } from "@/types/product";
@@ -130,6 +131,8 @@ export default async function ComparisonPage({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+
+      <MascotAccent src="mascot-compare.webp" position="bottom-right" />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10">
         {/* Breadcrumb */}
